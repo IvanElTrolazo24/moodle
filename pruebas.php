@@ -1,6 +1,6 @@
 <?php
-require 'conexion.php';
-require 'usuario.php';
+require '../models/conexion.php';
+require '../models/usuario.php';
 
 // se reciben los parametros del formulario
 $user = 'root';
