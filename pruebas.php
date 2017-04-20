@@ -1,10 +1,10 @@
 <?php
-require '../models/conexion.php';
-require '../models/usuario.php';
+require __DIR__.'/config.php';
+require __DIR__.'/app/autoload.php';
 
 // se reciben los parametros del formulario
-$user = 'root';
-$pwd = 'root';
+use MVC\Models\Rol;
 
-$usuario = Usuario::login($user, $pwd);
-var_dump($usuario);
+$roles = Rol::getRoles();
+
+var_dump($roles);

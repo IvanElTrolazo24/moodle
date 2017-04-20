@@ -8,12 +8,12 @@ return
 		//$classname = 'app\models\usuario'
 		$ruta = str_replace("\\", "/", $ruta) . ".php";
 		//$classname = 'app/models/usuario'
-		if (is_readable($ruta)) {
+		if (is_readable($ruta)) 
 			require $ruta;
-		}
+	
 		else
-		{
+		
 			die("El archivo $ruta no existe.");
-		}
+		
 		
 	});

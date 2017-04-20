@@ -23,15 +23,15 @@
       </div>
     </nav>
 
-  <main>
-    <div class="container"></div>
-  </main>
+	<main>
+		<div class="container"></div>
+	</main>
 
-  <footer>
-  <div class="container">
-    <p>&copy; CETis108 2017</p>
-  </div>
-  </footer>
+	<footer>
+	<div class="container">
+		<p>&copy; CETis108 2017</p>
+	</div>
+	</footer>
     <script src="../../public/js/jquery-3.1.1.slim.min.js"></script>
     <script src="../../public/js/bootstrap.min.js"></script>
   </body>
