@@ -54,7 +54,7 @@ class Rol {
 		 // crear conexion a MySQL
         $cnn = new Conexion();
         // definir sentencia SQL
-        $sql = sprintf("select * from rol_id where id=%d", $rolid);
+        $sql = sprintf("select * from roles where id=%d", $rolid);
         // ejecutar la sentencia ($rst = resultset)
         $rst = $cnn->query($sql);
         // cerrar conexion
