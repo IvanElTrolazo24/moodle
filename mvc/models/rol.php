@@ -51,5 +51,31 @@ class Rol {
 		// ejecutar consulta
 		// evaluar resultado
 		// retornar resultado
+		 // crear conexion a MySQL
+        $cnn = new Conexion();
+        // definir sentencia SQL
+        $sql = sprintf("select * from rol_id where id=%d", $rolid);
+        // ejecutar la sentencia ($rst = resultset)
+        $rst = $cnn->query($sql);
+        // cerrar conexion
+        $cnn->close();
+        if (!$rst) {
+            die('Error al ejecutar la consulta MySQL');
+        } elseif ($rst->num_rows == 1) { // mysqli_restult
+            // rol encontrado
+            // recoger los registros devueltos por la consulta
+            $r = $rst->fetch_assoc();
+            $this->id = $rolid;
+            $this->username = $r['username'];
+            $this->email = $r['email'];
+            $this->nombres = $r['nombres'];
+            $this->apellidos = $r['apellidos'];
+            $this->foto = $r['foto'];
+            $this->rol_id = $r['rol_id'];
+            return true;
+        } else {
+            // rol no encontrado
+            return false;
+        }
 	}
 }
