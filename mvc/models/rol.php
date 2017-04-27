@@ -44,7 +44,7 @@ class Rol {
 		}
 	}
 
-	public static function getRolByID()
+	public static function getRolByID($rolid)
 	{
 		// conectar
 		// definir consulta
@@ -54,25 +54,22 @@ class Rol {
 		 // crear conexion a MySQL
         $cnn = new Conexion();
         // definir sentencia SQL
-        $sql = sprintf("select * from roles where id=%d", $rolid);
+        $query = sprintf("select * from roles where id=%d", $rolid);
         // ejecutar la sentencia ($rst = resultset)
-        $rst = $cnn->query($sql);
+        $rst = $cnn->query($query);
         // cerrar conexion
         $cnn->close();
         if (!$rst) {
             die('Error al ejecutar la consulta MySQL');
-        } elseif ($rst->num_rows == 1) { // mysqli_restult
+        } elseif ($rst->num_rows == 1) { // mysqli_result
             // rol encontrado
             // recoger los registros devueltos por la consulta
+			$rol = new Rol();
             $r = $rst->fetch_assoc();
             $this->id = $rolid;
-            $this->username = $r['username'];
-            $this->email = $r['email'];
-            $this->nombres = $r['nombres'];
-            $this->apellidos = $r['apellidos'];
-            $this->foto = $r['foto'];
-            $this->rol_id = $r['rol_id'];
-            return true;
+            $this->nombre = $r['nombre'];
+            $this->descripcion = $r['descripcion'];
+            return $rol;
         } else {
             // rol no encontrado
             return false;
